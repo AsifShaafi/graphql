@@ -11,10 +11,16 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
+    "casual": "^1.6.2",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
     "graphql": "^15.1.0",
-    "nodemon": "^2.0.4"
+    "graphql-tools": "^6.0.9",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.18",
+    "nodemon": "^2.0.4",
+    "sequelize": "^5.21.12",
+    "sqlite3": "^4.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

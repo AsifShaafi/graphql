@@ -1,0 +1,33 @@
+import { Friends } from "./dbConnector";
+import mongoose from "mongoose";
+
+// resolver map
+export const resolvers = {
+  Query: {
+    getFriend: ({ id }) => {
+      return friendData[id];
+    },
+  },
+  Mutation: {
+    createFriend: (root, { input }) => {
+      const newFriend = new Friends({
+        firstName: input.firstName,
+        lastName: input.lastName,
+        gender: input.gender,
+        age: input.age,
+        language: input.language,
+        email: input.email,
+        contacts: input.contacts,
+      });
+
+      newFriend.id = newFriend._id;
+
+      return new Promise((resolve, object) => {
+        newFriend.save((err) => {
+          if (err) reject(err);
+          else resolve(newFriend);
+        });
+      });
+    },
+  },
+};
