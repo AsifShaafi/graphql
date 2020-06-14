@@ -1,20 +1,16 @@
 import express from "express";
 import graphqlHTTP from "express-graphql";
 
-import schema from "./schema";
-import resolvers from './resolvers';
+import {schema} from "./data/schema";
 
 const app = express();
 
 const PORT = 3001;
 
-const root = resolvers;
-
 app.use(
   "/graphql",
   graphqlHTTP({
     schema: schema,
-    rootValue: root,
     graphiql: true,
   })
 );
