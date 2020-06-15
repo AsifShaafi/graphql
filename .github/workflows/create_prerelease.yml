@@ -1,9 +1,9 @@
 on:
   push:
     branches:
-      - master
+      - develop
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
 
 name: Create Release
 
@@ -27,4 +27,4 @@ jobs:
             - First Change
             - Second Change
           draft: false
-          prerelease: false
+          prerelease: true
