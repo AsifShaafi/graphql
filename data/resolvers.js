@@ -1,11 +1,19 @@
-import { Friends } from "./dbConnector";
+import { Friends, Aliens } from "./dbConnector";
 import mongoose from "mongoose";
 
 // resolver map
 export const resolvers = {
   Query: {
-    getFriend: ({ id }) => {
-      return friendData[id];
+    getFriend: (root, { id }) => {
+      return new Promise((resolve, reject) => {
+        Friends.findById(id, (err, friend) => {
+          if (err) reject(err);
+          else resolve(friend);
+        });
+      });
+    },
+    getAliens: () => {
+      return Aliens.findAll();
     },
   },
   Mutation: {
